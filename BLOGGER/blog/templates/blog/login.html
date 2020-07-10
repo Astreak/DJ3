@@ -1,0 +1,111 @@
+{% extends 'blog/layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+</script>
+<style>
+    body {
+        background-color: azure;
+    }
+    
+    form {
+        position: relative;
+        top: 340px;
+    }
+    
+    label {
+        font-weight: bold;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+    }
+    
+    input,
+    .form-control {
+        border-radius: 4px;
+        font-size: 18px;
+        color: darkslategrey
+    }
+    
+    .main {
+        border-left: crimson;
+        border-right: cyan;
+        padding-left: 233px;
+        padding-right: 233px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    .header {
+        text-align: center;
+        position: relative;
+        top: 270px;
+        font-size: 35px;
+        font-weight: bolder;
+        background-color: floralwhite;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+
+<body>
+
+    <div class="header">
+        Login
+    </div>
+    <center>
+        <div class="main">
+            <form action="/Post" method="POST">
+
+                <div class="form-group">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="form-group col-md-4 row-md-10">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" name="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="form-group col-md-4">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Remember</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </center>
+    <script>
+        document.querySelector(".form-group").addEventListener("click", () => {
+            document.querySelector(".header").style.color = "green";
+            document.querySelector(".header").innerHTML = "Typing....";
+
+        });
+        document.querySelector("body").addEventListener("click ", () => {
+            document.querySelector(".header").innerHTML = "Login";
+
+        });
+    </script>
+
+</body>
+
+</html>
+{% endblock content %}

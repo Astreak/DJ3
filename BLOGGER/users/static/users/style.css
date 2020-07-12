@@ -1,0 +1,28 @@
+.head {
+    color: red;
+    position: relative;
+    top: 400px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 43px;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+h3 {
+    font-size: 29px;
+    font-style: oblique;
+}
+
+body {
+    background-color: black;
+}
+
+.navbar-brand,
+.nav-link {
+    font-family: "consolas";
+    font-size: 23px;
+}

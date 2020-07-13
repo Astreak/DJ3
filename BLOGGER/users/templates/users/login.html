@@ -49,11 +49,28 @@
         background-color: floralwhite;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
+    
+    .high {
+        position: relative;
+        top: 450px;
+        color: green;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 50px;
+    }
 </style>
 
 <body>
+    {% if user.username %}
+    <h1 class='high'>
+        <center> You are already logged in Mr. {{user.username }} give your head a wobble...:}</center>
+    </h1>
+    {% else %} {% if messages %}{% for msg in messages %}
+    <div class="alert alert-{{msg.tags}}">
+        {{msg}}
+    </div>
+    {% endfor %} {% endif %}
     <div class="header">
-        Register In The account
+        Login
     </div>
     <center>
         <div class="main">
@@ -99,15 +116,24 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a class="ml-2" href={% url 'login' %}> Already have an account</a>
-
-
+                <button type="submit" class="btn btn-primary">login</button>
+                <span><a class="ml-2" href="{% url 'users-register' %}"> You dont have an account </a></span>
             </form>
         </div>
     </center>
+    <script>
+        document.querySelector(".header").addEventListener("click ", () => {
+            document.querySelector(".header").innerHTML = "You clicked on the wrong place :()";
+            document.querySelector(".header").syle.color = "red";
+        });
+        document.querySelector("fieldset").addEventListener("click", () => {
+            document.querySelector(".header").style.color = "green";
+            document.querySelector(".header").innerHTML = "Typing....";
 
+        });
+    </script>
 
+    {% endif %}
 </body>
 {% endblock content %}
 

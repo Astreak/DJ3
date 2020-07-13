@@ -1,7 +1,15 @@
 {% extends 'blog/layout.html' %} {% block content %}
 <div class="head">
+    {% if user.username %}
     <h1>Welcome to The WebSite</h1>
-    <h3>Hola..</h3>
+    <h3>Hola.. MR.{{user.username}} </h3>
+    {% else %}
+    <h1>Welcome to The WebSite</h1>
+    <h3>Hola.. MR.
+    </h3>
+    <h2><span> You should login first</span></h2>
+    {% endif %}
+
 </div>
 <script type="text/javascript">
 </script>

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
-
+from django.contrib.auth.decorators import login_required
+@login_required
 def home(req):
     return render(req,"blog/home.html")
 

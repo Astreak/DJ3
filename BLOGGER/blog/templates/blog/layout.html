@@ -35,6 +35,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/info">INformation</a>
                 </li>
+                {% if user.username%}
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin</a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>

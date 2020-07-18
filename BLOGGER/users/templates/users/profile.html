@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-
+{% extends 'users/layout.html' %}{% load crispy_forms_tags %}
+<!Doctype html> {% block content %}
 <html lang="en">
 
 <head>
@@ -56,22 +56,74 @@
         text-decoration: dotted;
         text-indent: 0ex;
     }
+    
+    .K {
+        position: relative;
+        top: 250px;
+    }
 </style>
 
 <body>
     <h1 class="ok">Welcome to your profile Mr. {{user.username}}</h1>
-    <h1>
+    <h1 class="K">
         <center>
-            <img class="rounded-circle" src={{user.account.image.url}}>
+            <img class="rounded-circle " src={{user.account.image.url}}>
         </center>
         <center>
-            <h1> {{user.username}}</h1>
-            <h1>{{user.email}}</h1>
+            <h1><span style="color:green">User:</span> {{user.username}}</h1>
+
+            <h1><span style="color:green">email:</span> {{user.email}}</h1>
         </center>
     </h1>
+    <center>
+
+        <form method="POST " enctype="multipart/form-data ">
+            {% csrf_token %}
+            <div class="form-group ">
+                <div class="container-fluid ">
+                    <div class="row-fluid ">
+                        <div class="form-group col-md-4 ">
+                            <fieldset class="form-group ">
+                                <legend class="border-bottom mb-4 ">Change profile details</legend>
+                                {{f1|crispy}} {{f2|crispy}}
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="form-group ">
+                    <div class="container-fluid ">
+                        <div class="row-fluid ">
+                            <div class="form-group col-md-4 row-md-10 ">
+                                <label for="exampleInputEmail1 ">Email address</label>
+                                <input type="email " name="email " class="form-control " id="exampleInputEmail1 " aria-describedby="emailHelp ">
+                                <small id="emailHelp " class="form-text text-muted ">We'll never share your email with
+                                    anyone else.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="container-fluid ">
+                        <div class="row-fluid ">
+                            <div class="form-group col-md-4 ">
+                                <label for="exampleInputPassword1 ">Password</label>
+                                <input type="password " name="pass " class="form-control " id="exampleInputPassword1 ">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+            <button type="submit " class="btn btn-primary ">Submit</button>
+
+
+        </form>
+    </center>
 
 
 </body>
-
+{% endblock content %}
 
 </html>

@@ -6,7 +6,7 @@ class Account(models.Model):
    image=models.ImageField(default="default.jpg",upload_to="profile_pics")
    def __str__(self):
          return (f" {self.user.username} Profile");
-   def save(self):
+   def save(self,*a,**k):
          super().save();
          I=Image.open(self.image.path);
          if I.height>300 or I.width>300:

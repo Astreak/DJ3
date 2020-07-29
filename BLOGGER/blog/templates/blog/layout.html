@@ -35,10 +35,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/info">INformation</a>
                 </li>
+                {% if user.account %}
                 <li class="nav-item">
                     <a class="nav-link" href="/profile">Profile</a>
                 </li>
-                {% if user.username %}
+                {% endif %} {% if user.username %}
                 <li class="nav-item">
                     <a class="nav-link" href="/admin">Admin</a>
                 </li>

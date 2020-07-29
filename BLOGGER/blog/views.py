@@ -16,13 +16,12 @@ def Post_view(req):
         "posts":Post.objects.all()
     }
     return render(req,"blog/post.html",context);
+
+
+class PostView(ListView):
+    model=Post
+    template_name="blog/post.html"
+    context_object_name="posts" # for getting off the default list object dtype
+    ordering=["-date_posted"]
     
-
-def about(req):
-    return HttpResponse("<h1><center> Blog HOme </center></h1>")
-def login(req):
-    return render(req,"blog/login.html");
-def register(req):
-    return render(req,"blog/register.html");
-
 

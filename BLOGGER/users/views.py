@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .forms import *
 def register(req):
     if req.method=="POST":
@@ -9,6 +10,7 @@ def register(req):
         if form.is_valid():
             form.save()
             username=form.cleaned_data.get("username");
+            
             messages.success(req,f"Welcome to the family  MR.{username} you can login now ");
             return redirect("login")
     else:

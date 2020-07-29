@@ -21,10 +21,10 @@ def Profile(req):
     if req.method=="POST":
         f1=UserUpdateForm(req.POST,instance=req.user)
         f2=AccountUpdateForm(req.POST,req.FILES,instance=req.user.account)
-        if f1.is_valid() and f2.is_valid():
-            f1.save()
-            f2.save()
-            return redirect("user-profile")
+        
+        f1.save()
+        f2.save()
+        return redirect("user-profile")
     else:
         f1=UserUpdateForm(instance=req.user)
         f2=AccountUpdateForm(instance=req.user.account)

@@ -2,7 +2,7 @@
 <div class="head">
     {% if user.username %}
     <h1>Welcome to The WebSite</h1>
-    <h3>Hola.. MR.{{user.username}} </h3>
+    <h3>Hola..Mr.<span style="color:blueviolet"> {{user.username}} </span></h3>
     {% else %}
     <h1>Welcome to The WebSite</h1>
     <h3>Hola.. MR.
@@ -11,6 +11,6 @@
     {% endif %}
 
 </div>
-<script type="text/javascript">
+<script type=" text/javascript ">
 </script>
 {% endblock content %}

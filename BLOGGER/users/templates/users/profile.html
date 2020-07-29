@@ -1,4 +1,4 @@
-{% extends 'users/layout.html' %}{% load crispy_forms_tags %}
+{% extends 'users/layout.html' %}{% load crispy_forms_tags %} {% load static %}
 <!Doctype html> {% block content %}
 <html lang="en">
 
@@ -11,7 +11,7 @@
 </head>
 <style>
     body {
-        background-color: azure;
+        background-color: black;
     }
     
     form {
@@ -55,6 +55,7 @@
         color: crimson;
         text-decoration: dotted;
         text-indent: 0ex;
+        font-family: Georgia, 'Times New Roman', Times, serif
     }
     
     .K {
@@ -70,21 +71,21 @@
             <img class="rounded-circle " src={{user.account.image.url}}>
         </center>
         <center>
-            <h1><span style="color:green">User:</span> {{user.username}}</h1>
+            <h2 style="color:aqua"><span style="color:green">User:</span> {{user.username}}</h2>
 
-            <h1><span style="color:green">email:</span> {{user.email}}</h1>
+            <h2 style="color:aqua"><span style="color:green">email:</span> {{user.email}}</h2>
         </center>
     </h1>
     <center>
 
-        <form method="POST " enctype="multipart/form-data ">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group ">
                 <div class="container-fluid ">
                     <div class="row-fluid ">
                         <div class="form-group col-md-4 ">
                             <fieldset class="form-group ">
-                                <legend class="border-bottom mb-4 ">Change profile details</legend>
+                                <legend class="border-bottom mb-4">Change profile details</legend>
                                 {{f1|crispy}} {{f2|crispy}}
                             </fieldset>
                         </div>
@@ -121,7 +122,14 @@
 
         </form>
     </center>
+    <!-- <center>
+        {% for p in P.posts %}
+        <ul>
+            <li>{{p.content}}</li>
+        </ul>
+        {% endfor %}
 
+    </center> -->
 
 </body>
 {% endblock content %}

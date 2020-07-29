@@ -1,9 +1,10 @@
 .head {
     color: red;
     position: relative;
-    top: 400px;
+    top: 200px;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
 }
 
 h1 {
@@ -25,4 +26,21 @@ body {
 .nav-link {
     font-family: "consolas";
     font-size: 23px;
+}
+
+.popp {
+    color: crimson;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+}
+
+nav {
+    position: sticky;
+}
+
+.JOJJ {
+    color: red;
+    text-align: center;
 }

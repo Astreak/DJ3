@@ -1,7 +1,7 @@
 {% extends 'blog/layout.html' %} {% block content %}
 <h1 class="JOJJ"> Posts </h1>
 
-<div class="headeer"> {% for i in posts %}
+<div class="headeer"> {% for i in posts%}
     <div class="popp">
         <img class="rounded-circle " src={{i.author.account.image.url}}>
         <b>{{i.author}}</b>
@@ -16,8 +16,11 @@
         <li> {{i.content}}</li>
         
     </ul>
+    <a href="{% url 'post-update' i.id %}" >Update </a>
+    <a href="{% url 'post-delete' i.id %}">Delete </a>
     <hr style="color:antiquewhite "><br>
     {% endfor %}
+    <br><hr>
     <a href="{% url 'post-create' %}" class="btn btn-primary">Create NEw POst</a>
 </div>
 <script type=" text/javascript ">

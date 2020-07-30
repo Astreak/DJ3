@@ -10,7 +10,6 @@ def register(req):
         if form.is_valid():
             form.save()
             username=form.cleaned_data.get("username");
-            
             messages.success(req,f"Welcome to the family  MR.{username} you can login now ");
             return redirect("login")
     else:

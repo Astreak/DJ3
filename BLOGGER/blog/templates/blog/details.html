@@ -1,0 +1,23 @@
+{% extends 'blog/layout.html' %} {% block content %}
+<h1 class="JOJJ"> Posts </h1>
+
+<div class="headeer">
+    <div class="popp">
+        <img class="rounded-circle " src={{object.author.account.image.url}}>
+        <b>{{object.author}}</b>
+    </div>
+    <ul>
+
+
+        <h3><span style="color:green"> {{object.title}}</h3>
+
+        <li> {{object.content}}</li>
+
+    </ul>
+    <hr style="color:antiquewhite"><br>
+    
+
+</div>
+<script type=" text/javascript ">
+</script>
+{% endblock content %}

@@ -1,21 +1,24 @@
 {% extends 'blog/layout.html' %} {% block content %}
 <h1 class="JOJJ"> Posts </h1>
 
-<div class="head"> {% for i in posts %}
+<div class="headeer"> {% for i in posts %}
     <div class="popp">
         <img class="rounded-circle " src={{i.author.account.image.url}}>
         <b>{{i.author}}</b>
     </div>
     <ul>
 
-        <h3><span style="color:green"> {{i.title}}</h3>
+
+
+        <a href="{% url 'post-view' i.id %}">
+            <h3><span style=" color:green "> {{i.title}}</h3></a>
 
         <li> {{i.content}}</li>
         
     </ul>
-    <hr style="color:antiquewhite"><br>
+    <hr style="color:antiquewhite "><br>
     {% endfor %}
-
+    <a href="{% url 'post-create' %}" class="btn btn-primary">Create NEw POst</a>
 </div>
 <script type=" text/javascript ">
 </script>

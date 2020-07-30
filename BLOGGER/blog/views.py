@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView,CreateView
 from .models import Post
 from django.contrib.auth.decorators import login_required
 
@@ -22,6 +22,19 @@ class PostView(ListView):
     model=Post
     template_name="blog/post.html"
     context_object_name="posts" # for getting off the default list object dtype
-    ordering=["-date_posted"]
     
+    
+class PostDetails(DetailView):
+    model=Post #model we care about
+    template_name="blog/details.html"
+    context_object_name="posts" # for getting off the default list object dtype
+
+class PostCreate(CreateView):
+    model=Post
+    fields=['title','content']
+    def form_valid(self,form):
+        form.instance.author=self.request.user;
+        return super().form_valid(form)
+        
+        
 

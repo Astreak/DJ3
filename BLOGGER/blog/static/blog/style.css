@@ -1,7 +1,7 @@
 .head {
     color: red;
     position: relative;
-    top: 200px;
+    top: 400px;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
@@ -37,10 +37,20 @@ body {
 }
 
 nav {
-    position: sticky;
+    position: fixed;
+    position: 0;
 }
 
 .JOJJ {
     color: red;
     text-align: center;
+}
+
+.headeer {
+    color: red;
+    position: relative;
+    top: 300px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
 }

@@ -14,7 +14,8 @@ SECRET_KEY = 'y)@w15!r*lqqd5suy8hjr0p4sqnd(uv8^hs2h2k6!th9fk6puw'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+os.environ["EMAIL_USER"]=********
+os.environ["PASS"]=*******
 
 # Application definition
 
@@ -115,3 +116,11 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_REDIRECT_URL="blog-home"
 LOGIN_URL="login"
+
+EMAIL_BACKEND='django.core.mail.backend.smtp.EmailBackend'
+EMAIL_HOST='smtp.gamil.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=os.environ.get("EMAIL_USER")
+EMAIL_HOST_PASSWORD=os.environ.get("PASS")
+

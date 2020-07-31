@@ -1,7 +1,7 @@
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-from .models import Account
+from .models import Account,Mees
 
 @receiver(post_save,sender=User)
 def create_profile(sender,instance,created,**k):
@@ -12,5 +12,4 @@ def create_profile(sender,instance,created,**k):
 @receiver(post_save,sender=User)
 def save_profile(sender,instance,**k):
     instance.account.save()
-        
         

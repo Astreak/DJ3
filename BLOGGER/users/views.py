@@ -9,7 +9,7 @@ def register(req):
         form=UserRegisterForm(req.POST)
         if form.is_valid():
             form.save()
-            messages.success(req,f"Hello Mr. {username}")
+            messages.success(req,f"Hello welcome to the family")
             return redirect("login")
     else:
         form=UserRegisterForm()
@@ -34,4 +34,30 @@ def Profile(req):
     }
     return render(req,"users/profile.html",context);
 
+@login_required
+def msg(req):
+    if req.method=="POST":
+        f=MSG(req.POST,instance=req.user)
+        if f.is_valid():
+            f.save()
+        else:
+            messages.error(req,"Invalid usernames");
+        return redirect("blog-home")
+    else:
+        f=MSG(instance=req.user)
     
+    return render(req,"users/msg.html",{"F":f});
+
+@login_required
+def persons(req):
+    if req.method=="POST":
+        F=PRSN(req.POST)
+        if F.is_valid() and F.cleaned_data.get("Fname")==req.user.username and (F.cleaned_data.get("age")>=1 or F.cleaned_data.get("age")<=100):
+            F.save()
+            return redirect("blog-home")
+        else:
+            messages.warning(req,"Form is invalid");
+            return redirect("blog-home")
+    else:
+        F=PRSN()
+    return render(req,"users/person.html",{"C":F});

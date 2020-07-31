@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Account
+from .models import Account,Mees
 
 class UserRegisterForm(UserCreationForm):
     email=forms.EmailField();
@@ -21,4 +21,10 @@ class AccountUpdateForm(forms.ModelForm):
     class Meta:
         model=Account
         fields=["image"]
+        
+class MSG(forms.ModelForm):
+    class Meta:
+        model=Mees
+        fields=["sen","rec"]
+
         

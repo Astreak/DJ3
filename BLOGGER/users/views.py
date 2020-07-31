@@ -6,16 +6,14 @@ from django.contrib.auth.models import User
 from .forms import *
 def register(req):
     if req.method=="POST":
-        form=UserRegisterForm(req.POST);
+        form=UserRegisterForm(req.POST)
         if form.is_valid():
             form.save()
-            username=form.cleaned_data.get("username");
-            messages.success(req,f"Welcome to the family  MR.{username} you can login now ");
+            messages.success(req,f"Hello Mr. {username}")
             return redirect("login")
     else:
         form=UserRegisterForm()
-        
-    return render(req,"users/register.html",{'form':form});
+    return render(req,"users/register.html",{"form":form})
 
 @login_required
 def Profile(req):

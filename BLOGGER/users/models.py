@@ -14,5 +14,12 @@ class Account(models.Model):
                I.thumbnail(O)
                I.save(self.image.path)
          
-
+class Mees(models.Model):
+      sen=models.OneToOneField(User,related_name="sender",on_delete=models.CASCADE)
+      rec=models.OneToOneField(User,related_name="rec",on_delete=models.CASCADE)
+      
+      def __str__(self):
+            return f"{self.sen.username} is following {self.rec.username}"
+      
+      
    

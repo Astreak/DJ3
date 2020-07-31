@@ -14,8 +14,8 @@ SECRET_KEY = 'y)@w15!r*lqqd5suy8hjr0p4sqnd(uv8^hs2h2k6!th9fk6puw'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-os.environ["EMAIL_USER"]=********
-os.environ["PASS"]=*******
+os.environ["EMAIL_USER"]="*********"
+os.environ["PASS"]="**********"
 
 # Application definition
 

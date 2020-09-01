@@ -1,0 +1,92 @@
+{% extends 'users/layout.html' %} {% load crispy_forms_tags %}
+<!DOCTYPE html> {% block content %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get_it_done</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<style>
+    body {
+        background-color: azure;
+    }
+    
+    form {
+        position: relative;
+        top: 340px;
+    }
+    
+    label {
+        font-weight: bold;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 20px;
+    }
+    
+    input,
+    .form-control {
+        border-radius: 4px;
+        font-size: 18px;
+        color: darkslategrey
+    }
+    
+    .main {
+        border-left: crimson;
+        border-right: cyan;
+        padding-left: 233px;
+        padding-right: 233px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    .header {
+        text-align: center;
+        position: relative;
+        top: 270px;
+        font-size: 35px;
+        font-weight: bolder;
+        background-color: floralwhite;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+
+<body>
+    <div class="header">
+        Followers
+    </div>
+    <center>
+        <div class="main">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="form-group col-md-4">
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4">Has_in_here</legend>
+                                    {{F|crispy}}
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group form-check">
+
+                </div>
+                <button type="submit" class="btn btn-primary">follow</button>
+
+
+
+            </form>
+        </div>
+    </center>
+
+
+</body>
+{% endblock content %}
+
+</html>
